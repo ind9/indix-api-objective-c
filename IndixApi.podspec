@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "IndixApi"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Indix api client for objective c"
   s.description  = "Indix is a product information marketplace"
   s.homepage     = "http://www.indix.com"
