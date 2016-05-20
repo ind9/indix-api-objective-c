@@ -27,7 +27,7 @@
 }
 
 - (void)testIndixAPIV2KeyIsValid {
-    [IndixApiClient setServiceTokenId:@"foo" appKey:@"bar"];
+    [IndixApiClient setIndixAppId:@"foo" appKey:@"bar"];
     NSString * api_ID = [IndixApiClient getServiceTokenAppId];
     NSString * api_key = [IndixApiClient getServiceTokenAppKey];
     XCTAssertEqualObjects(api_ID, @"foo", @"Indix api key is not same");
@@ -49,15 +49,6 @@
     NSInteger count = [IXRApiV2Parser parseProductCountFromSearchDictionary:dataDictionary];
     XCTAssert(count>0, @"Thsi value cannot be zero");
     
-}
-
-- (void)testV2PatchingQueryForProductSearch {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"pageNumber": @"1", @"sortBy": kIXRSortTypeMostRecent, @"storesCount":@"10"}];
-    NSDictionary * oDict = [IndixApiClient patchQueryToProductSearch:dict];
-    
-    XCTAssertEqualObjects([oDict objectForKey:@"pageNumber"], @"1", @"This items should be equal");
-    XCTAssertEqualObjects([oDict objectForKey:@"sortBy"], @"MOST_RECENT", @"This items should be equal");
-    XCTAssertEqualObjects([oDict objectForKey:@"storesCount"], @"10", @"This items should be equal");
 }
 
 - (void)testV2PatchingQueryForProductDescription {

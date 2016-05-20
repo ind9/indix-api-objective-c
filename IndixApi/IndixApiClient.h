@@ -20,35 +20,42 @@ extern NSString * const kIXRSortTypePriceLowToHigh;
 // App ID and Key to make this api work
 + (NSString *)getServiceTokenAppId;
 + (NSString *)getServiceTokenAppKey;
-+ (void)setServiceTokenId:(NSString *)appId appKey:(NSString *)key;
++ (void)setIndixAppId:(NSString *)appId appKey:(NSString *)key;
+
+
++ (AFHTTPRequestOperation *)getCategories:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getBrands:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getStores:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 // Search Suggestions
-+ (AFHTTPRequestOperation *)requestSearchSuggestionForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
++ (AFHTTPRequestOperation *)getSearchSuggestions:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 // Search
-// query - string
-+ (AFHTTPRequestOperation *)requestSKUSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-+ (AFHTTPRequestOperation *)requestMPNSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-+ (AFHTTPRequestOperation *)requestUPCSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-+ (AFHTTPRequestOperation *)requestGeneralSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductSummary:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductOffersStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductOffersPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductCatalogStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductCatalogPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductUniversal:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 + (BOOL)isPaginationPossibleForPage:(NSInteger)page andTotalCount:(NSInteger)count;
++ (BOOL)isPaginationPossibleForOffersInStore:(NSInteger)page andTotalCount:(NSInteger)count;
 
-+ (AFHTTPRequestOperation *)requestProductDescriptionForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+// Search Lookup
++ (AFHTTPRequestOperation *)getProductLookupSummary:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductLookupOffersStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductLookupOffersPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductLookupCatalogStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductLookupCatalogPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (AFHTTPRequestOperation *)getProductLookupUniversal:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
+
 + (NSMutableDictionary *)patchQueryToProductDescription:(NSDictionary *)dictionary;
 
-+ (BOOL)isPaginationPossibleForOffersInStore:(NSInteger)page andTotalCount:(NSInteger)count;
 
 // Rest methods
 + (AFHTTPRequestOperationManager *)prepareHttpRequestManager;
-+ (AFHTTPRequestOperation *)httpGetRequestForEndPoint:(NSString *)url parameter:(NSDictionary *)parameter withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-
-// Testing
-+ (NSMutableDictionary *)patchQueryToProductSearch:(NSDictionary *)dictionary;
++ (AFHTTPRequestOperation *)httpGetRequestForEndPoint:(NSString *)url parameter:(NSDictionary *)parameter success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 
 

@@ -15,10 +15,19 @@ NSString *const kIXAPIV2BaseURL = @"https://api.indix.com";
 NSString *const kIXAPIV2GetParameterAPIID = @"app_id";
 NSString *const kIXAPIV2GetParameterAPIKEY = @"app_key";
 
-NSString *const kIXAPIV2SearchSuggestionEndPoint = @"/v2/products/suggestions";
-NSString *const kIXAPIV2SearchProductsEndPoint = @"/v2/summary/products";
+NSString *const kIXAPIV2StoresEndPoint = @"/v2/stores";
+NSString *const kIXAPIV2BrandsEndPoint = @"/v2/brands";
+NSString *const kIXAPIV2CategoriesEndPoint = @"/v2/categories";
 
-NSString *const kIXAPIV2ProductDescriptionEndPoint = @"/v2/universal/products/%@";
+NSString *const kIXAPIV2SearchSuggestionEndPoint = @"/v2/products/suggestions";
+
+NSString *const kIXAPIV2SearchSummaryProductsEndPoint = @"/v2/summary/products";
+NSString *const kIXAPIV2SearchOffersStandardProductsEndPoint = @"/v2/OffersStandard/products";
+NSString *const kIXAPIV2SearchOffersPremiumProductsEndPoint = @"/v2/OffersPremium/products";
+NSString *const kIXAPIV2SearchCatalogStandardProductsEndPoint = @"/v2/catalogStandard/products";
+NSString *const kIXAPIV2SearchCatalogPremiumProductsEndPoint = @"/v2/catalogPremium/products";
+NSString *const kIXAPIV2SearchUniversalProductsEndPoint = @"/v2/universal/products";
+
 NSInteger const kIXAPIV2DefaultPageSize = 10;
 
 NSString *const kIXRSortTypeRelevance = @"RELEVANCE";
@@ -40,207 +49,123 @@ NSString *const kIXRSortTypePriceLowToHigh = @"PRICE_LOW_TO_HIGH";
     return serviceTokenId;
 }
 
-+ (void)setServiceTokenId:(NSString *)appId appKey:(NSString *)key {
++ (void)setIndixAppId:(NSString *)appId appKey:(NSString *)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:appId forKey:kIXAPIV2ServiceTokenAPIID];
     [defaults setObject:key forKey:kIXAPIV2ServiceTokenAPIKey];
     [defaults synchronize];
 }
 
-+ (AFHTTPRequestOperation *)requestSearchSuggestionForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (AFHTTPRequestOperation *)getBrands:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    NSDictionary *queryParameter = [self patchQueryToSearchSuggestion:dictionary];
-    [queryParameter setValue:[dictionary objectForKey:@"q"] forKey:@"q"];
-    
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchSuggestionEndPoint parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2BrandsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
 }
 
-+ (NSMutableDictionary *)patchQueryToSearchSuggestion:(NSDictionary *)dictionary {
-    NSMutableDictionary *queryParameter = [[NSMutableDictionary alloc] init];
-    if ([dictionary objectForKey:@"country_code"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"countryCode"] forKey:@"countryCode"];
-    }
++ (AFHTTPRequestOperation *)getStores:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    return queryParameter;
-}
-
-// query and patch
-+ (AFHTTPRequestOperation *)requestSKUSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSDictionary *queryParameter = [self patchQueryToProductSearchUsingNumber:dictionary];
-    [queryParameter setValue:[dictionary objectForKey:@"sku"] forKey:@"sku"];
-    
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchProductsEndPoint parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2StoresEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
 }
 
-+ (AFHTTPRequestOperation *)requestMPNSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSDictionary *queryParameter = [self patchQueryToProductSearchUsingNumber:dictionary];
-    [queryParameter setValue:[dictionary objectForKey:@"mpn"] forKey:@"mpn"];
-    
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchProductsEndPoint parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
++ (AFHTTPRequestOperation *)getCategories:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2CategoriesEndPoint parameter:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
 }
 
-+ (AFHTTPRequestOperation *)requestUPCSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (AFHTTPRequestOperation *)getSearchSuggestions:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    NSDictionary *queryParameter = [self patchQueryToProductSearchUsingNumber:dictionary];
-    [queryParameter setValue:[dictionary objectForKey:@"upc"] forKey:@"upc"];
-    
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchProductsEndPoint parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchSuggestionEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
 }
 
-+ (AFHTTPRequestOperation *)requestGeneralSearchForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (AFHTTPRequestOperation *)getProductSummary:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    NSMutableDictionary *queryParameter = [self patchQueryToProductSearch:dictionary];
-    [queryParameter setValue:[dictionary objectForKey:@"q"] forKey:@"q"];
-    
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchProductsEndPoint parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchSummaryProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
 }
 
-// pageNumber = 1 and above
-// sortBy = PRICE_LOW_TO_HIGH, PRICE_HIGH_TO_LOW, MOST_RECENT
-// count = 10 by default
-// filter_enabled = true/false
-// filter_by_categories -> sets
-// filter_by_brands -> sets
-// filter_by_stores -> sets
-+ (NSMutableDictionary *)patchQueryToProductSearch:(NSDictionary *)dictionary {
-    NSDictionary *params = [self patchPlainToProductSearch:dictionary];
-    NSMutableDictionary *queryParameter = [[NSMutableDictionary alloc] initWithDictionary:params];
++ (AFHTTPRequestOperation *)getProductOffersStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    if ([dictionary objectForKey:@"facetBy"] && [[dictionary objectForKey:@"facetBy"] count] > 0) {
-        [queryParameter setValue:[dictionary objectForKey:@"facetBy"] forKey:@"facetBy"];
-    }
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchOffersStandardProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
     
-    
-    return queryParameter;
+    return operation;
 }
 
-
-
-
-+ (NSMutableDictionary *)patchPlainToProductSearch:(NSDictionary *)dictionary {
-    NSMutableDictionary *queryParameter = [[NSMutableDictionary alloc] init];
-    if ([dictionary objectForKey:@"pageNumber"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"pageNumber"] forKey:@"pageNumber"];
-    }
++ (AFHTTPRequestOperation *)getProductOffersPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    if ([dictionary objectForKey:@"sortBy"]) {
-        NSString *sortType = [dictionary objectForKey:@"sortBy"];
-        if ([sortType isEqualToString:kIXRSortTypeMostRecent]) {
-            [queryParameter setValue:kIXRSortTypeMostRecent forKey:@"sortBy"];
-        }
-        else if ([sortType isEqualToString:kIXRSortTypePriceHighToLow]) {
-            [queryParameter setValue:kIXRSortTypePriceHighToLow forKey:@"sortBy"];
-        }
-        else if ([sortType isEqualToString:kIXRSortTypePriceLowToHigh]) {
-            [queryParameter setValue:kIXRSortTypePriceLowToHigh forKey:@"sortBy"];
-        }
-    }
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchOffersPremiumProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
     
-    if ([dictionary objectForKey:@"storesCount"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"storesCount"] forKey:@"storesCount"];
-    }
-    
-    if ([dictionary objectForKey:@"countryCode"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"countryCode"] forKey:@"countryCode"];
-    }
-    
-    
-    if ([dictionary objectForKey:@"lastRecordedIn"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"lastRecordedIn"] forKey:@"lastRecordedIn"];
-    }
-    
-    if ([dictionary objectForKey:@"pageSize"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"pageSize"] forKey:@"pageSize"];
-    }
-    else {
-        [queryParameter setValue:[NSString stringWithFormat:@"%d", (int)kIXAPIV2DefaultPageSize] forKey:@"pageSize"];
-    }
-    
-    
-    
-    if ([dictionary objectForKey:@"availability"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"availability"] forKey:@"availability"];
-    }
-    
-    if ([dictionary objectForKey:@"startPrice"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"startPrice"] forKey:@"startPrice"];
-    }
-    
-    if ([dictionary objectForKey:@"endPrice"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"endPrice"] forKey:@"endPrice"];
-    }
-    
-    
-    if ([dictionary objectForKey:@"categoryId"]) {
-        NSSet *set = [dictionary objectForKey:@"categoryId"];
-        if ([set count] > 0) {
-            [queryParameter setValue:[dictionary objectForKey:@"categoryId"] forKey:@"categoryId"];
-            
-        }
-    }
-    
-    if ([dictionary objectForKey:@"brandId"]) {
-        NSSet *set = [dictionary objectForKey:@"brandId"];
-        if ([set count] > 0) {
-            [queryParameter setValue:[dictionary objectForKey:@"brandId"] forKey:@"brandId"];
-            
-        }
-    }
-    
-    if ([dictionary objectForKey:@"storeId"]) {
-        NSSet *set = [dictionary objectForKey:@"storeId"];
-        if ([set count] > 0) {
-            [queryParameter setValue:[dictionary objectForKey:@"storeId"] forKey:@"storeId"];
-        }
-        
-        
-    }
-    
-    
-    return queryParameter;
+    return operation;
 }
 
-
-+ (NSMutableDictionary *)patchQueryToProductSearchUsingNumber:(NSDictionary *)dictionary {
-    NSMutableDictionary *queryParameter = [[NSMutableDictionary alloc] init];
-    if ([dictionary objectForKey:@"countryCode"]) {
-        [queryParameter setValue:[dictionary objectForKey:@"countryCode"] forKey:@"countryCode"];
-    }
++ (AFHTTPRequestOperation *)getProductCatalogStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    return queryParameter;
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchCatalogStandardProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
 }
+
++ (AFHTTPRequestOperation *)getProductCatalogPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchCatalogPremiumProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductUniversal:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:kIXAPIV2SearchUniversalProductsEndPoint parameter:dictionary success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
 
 + (BOOL)isPaginationPossibleForPage:(NSInteger)page andTotalCount:(NSInteger)count {
     
@@ -261,14 +186,79 @@ NSString *const kIXRSortTypePriceLowToHigh = @"PRICE_LOW_TO_HIGH";
 }
 
 // pid - *
-+ (AFHTTPRequestOperation *)requestProductDescriptionForQuery:(NSDictionary *)dictionary withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (AFHTTPRequestOperation *)getProductLookupSummary:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
     NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
     
-    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:kIXAPIV2ProductDescriptionEndPoint, [dictionary objectForKey:@"mpid"]] parameter:queryParameter withManager:operationManger success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchSummaryProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductLookupOffersStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchOffersStandardProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductLookupOffersPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchOffersPremiumProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductLookupCatalogStandard:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchCatalogStandardProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductLookupCatalogPremium:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchCatalogPremiumProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    
+    return operation;
+}
+
++ (AFHTTPRequestOperation *)getProductLookupUniversal:(NSDictionary *)dictionary success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
+    
+    NSMutableDictionary *queryParameter = [self patchQueryToProductDescription:dictionary];
+    
+    AFHTTPRequestOperation * operation = [self httpGetRequestForEndPoint:[NSString stringWithFormat:@"%@,%@", kIXAPIV2SearchUniversalProductsEndPoint,[dictionary objectForKey:@"mpid"]] parameter:queryParameter success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
     
     return operation;
@@ -292,12 +282,9 @@ NSString *const kIXRSortTypePriceLowToHigh = @"PRICE_LOW_TO_HIGH";
 }
 
 
-+ (AFHTTPRequestOperation *)httpGetRequestForEndPoint:(NSString *)url parameter:(NSDictionary *)parameter withManager:(AFHTTPRequestOperationManager *)operationManger success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (AFHTTPRequestOperation *)httpGetRequestForEndPoint:(NSString *)url parameter:(NSDictionary *)parameter success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     
-    AFHTTPRequestOperationManager *manager = operationManger;
-    if (!manager) {
-        manager = [self prepareHttpRequestManager];
-    }
+    AFHTTPRequestOperationManager *manager = [self prepareHttpRequestManager];
     
     NSMutableDictionary *getparams = [[NSMutableDictionary alloc] init];
     if (parameter) {
@@ -307,9 +294,9 @@ NSString *const kIXRSortTypePriceLowToHigh = @"PRICE_LOW_TO_HIGH";
     [getparams setObject:[self getServiceTokenAppKey] forKey:kIXAPIV2GetParameterAPIKEY];
     
     AFHTTPRequestOperation * operation = [manager GET:url parameters:getparams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation, responseObject);
+        success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+        failure(error);
     }];
     
     
