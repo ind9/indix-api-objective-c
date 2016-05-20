@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 extern NSInteger const kIXAPIV2DefaultPageSize;
 extern NSString * const kIXRSortTypeRelevance;
