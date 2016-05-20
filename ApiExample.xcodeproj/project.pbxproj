@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FCC11D07D1EABFCD682A019 /* libPods-ApiExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7865DCBD8744BEE6467283 /* libPods-ApiExampleTests.a */; };
+		4D0E14D1A16C6A9BFD69978D /* libPods-ApiExampleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EED60FC99D2DB3C5AD8519 /* libPods-ApiExampleUITests.a */; };
+		8139A6A09FC4554D4D0EAD18 /* libPods-ApiExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D04F4AA7CAEAF2CEC713A7 /* libPods-ApiExample.a */; };
 		F51B96E81CEC19F100B090FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B96E71CEC19F100B090FF /* main.m */; };
 		F51B96EB1CEC19F100B090FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B96EA1CEC19F100B090FF /* AppDelegate.m */; };
 		F51B96EE1CEC19F100B090FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B96ED1CEC19F100B090FF /* ViewController.m */; };
@@ -15,6 +18,18 @@
 		F51B96F61CEC19F100B090FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51B96F41CEC19F100B090FF /* LaunchScreen.storyboard */; };
 		F51B97011CEC19F100B090FF /* ApiExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B97001CEC19F100B090FF /* ApiExampleTests.m */; };
 		F51B970C1CEC19F100B090FF /* ApiExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B970B1CEC19F100B090FF /* ApiExampleUITests.m */; };
+		F51B971C1CEC1A6000B090FF /* IndixApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B971B1CEC1A6000B090FF /* IndixApiClient.m */; };
+		F5ABC6AD1CEEEC7900D4503F /* IXRApiV2Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6AC1CEEEC7900D4503F /* IXRApiV2Parser.m */; };
+		F5ABC6D81CEEEC8E00D4503F /* IXMBrandFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6B21CEEEC8E00D4503F /* IXMBrandFilter.m */; };
+		F5ABC6D91CEEEC8E00D4503F /* IXMCategoryFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6B41CEEEC8E00D4503F /* IXMCategoryFilter.m */; };
+		F5ABC6DC1CEEEC8E00D4503F /* IXMFilterObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6BA1CEEEC8E00D4503F /* IXMFilterObjects.m */; };
+		F5ABC6DE1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6BE1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.m */; };
+		F5ABC6DF1CEEEC8E00D4503F /* IXMProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6C01CEEEC8E00D4503F /* IXMProductDetail.m */; };
+		F5ABC6E01CEEEC8E00D4503F /* IXMProductPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6C21CEEEC8E00D4503F /* IXMProductPrice.m */; };
+		F5ABC6E61CEEEC8E00D4503F /* IXMStoreFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6CE1CEEEC8E00D4503F /* IXMStoreFilter.m */; };
+		F5ABC6EA1CEEEC8E00D4503F /* IXProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC6D61CEEEC8E00D4503F /* IXProduct.m */; };
+		F5ABC6EE1CEEF47600D4503F /* product_desc_v2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5ABC6EC1CEEF47600D4503F /* product_desc_v2.txt */; };
+		F5ABC6EF1CEEF47600D4503F /* product_search_v2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5ABC6ED1CEEF47600D4503F /* product_search_v2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17EE366C9BC53586EFEFB04A /* Pods-ApiExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExampleTests/Pods-ApiExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		23EED60FC99D2DB3C5AD8519 /* libPods-ApiExampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApiExampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28D04F4AA7CAEAF2CEC713A7 /* libPods-ApiExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApiExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7865DCBD8744BEE6467283 /* libPods-ApiExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApiExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D47F8798C363725C40BD407 /* Pods-ApiExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExampleUITests/Pods-ApiExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		77E016209ED9E4EDD6F4BDE0 /* Pods-ApiExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExample/Pods-ApiExample.release.xcconfig"; sourceTree = "<group>"; };
+		7CF5D7D15D5AADA51C473583 /* Pods-ApiExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExampleUITests/Pods-ApiExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8713DB9642C17E044CB0A65A /* Pods-ApiExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExampleTests/Pods-ApiExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EED2E9A5737CADD6FD47E79F /* Pods-ApiExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiExample/Pods-ApiExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F51B96E31CEC19F000B090FF /* ApiExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51B96E71CEC19F100B090FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F51B96E91CEC19F100B090FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +75,28 @@
 		F51B97071CEC19F100B090FF /* ApiExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51B970B1CEC19F100B090FF /* ApiExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiExampleUITests.m; sourceTree = "<group>"; };
 		F51B970D1CEC19F100B090FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F51B971A1CEC1A6000B090FF /* IndixApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndixApiClient.h; path = IndixApi/IndixApiClient.h; sourceTree = SOURCE_ROOT; };
+		F51B971B1CEC1A6000B090FF /* IndixApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndixApiClient.m; path = IndixApi/IndixApiClient.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6AB1CEEEC7900D4503F /* IXRApiV2Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXRApiV2Parser.h; path = IndixApi/IXRApiV2Parser.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6AC1CEEEC7900D4503F /* IXRApiV2Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXRApiV2Parser.m; path = IndixApi/IXRApiV2Parser.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6B11CEEEC8E00D4503F /* IXMBrandFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMBrandFilter.h; path = IndixApi/Models/IXMBrandFilter.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6B21CEEEC8E00D4503F /* IXMBrandFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMBrandFilter.m; path = IndixApi/Models/IXMBrandFilter.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6B31CEEEC8E00D4503F /* IXMCategoryFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMCategoryFilter.h; path = IndixApi/Models/IXMCategoryFilter.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6B41CEEEC8E00D4503F /* IXMCategoryFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMCategoryFilter.m; path = IndixApi/Models/IXMCategoryFilter.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6B91CEEEC8E00D4503F /* IXMFilterObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMFilterObjects.h; path = IndixApi/Models/IXMFilterObjects.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6BA1CEEEC8E00D4503F /* IXMFilterObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMFilterObjects.m; path = IndixApi/Models/IXMFilterObjects.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6BD1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMProductDescriptionAttributes.h; path = IndixApi/Models/IXMProductDescriptionAttributes.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6BE1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMProductDescriptionAttributes.m; path = IndixApi/Models/IXMProductDescriptionAttributes.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6BF1CEEEC8E00D4503F /* IXMProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMProductDetail.h; path = IndixApi/Models/IXMProductDetail.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6C01CEEEC8E00D4503F /* IXMProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMProductDetail.m; path = IndixApi/Models/IXMProductDetail.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6C11CEEEC8E00D4503F /* IXMProductPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMProductPrice.h; path = IndixApi/Models/IXMProductPrice.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6C21CEEEC8E00D4503F /* IXMProductPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMProductPrice.m; path = IndixApi/Models/IXMProductPrice.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6CD1CEEEC8E00D4503F /* IXMStoreFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXMStoreFilter.h; path = IndixApi/Models/IXMStoreFilter.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6CE1CEEEC8E00D4503F /* IXMStoreFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXMStoreFilter.m; path = IndixApi/Models/IXMStoreFilter.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6D51CEEEC8E00D4503F /* IXProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXProduct.h; path = IndixApi/Models/IXProduct.h; sourceTree = SOURCE_ROOT; };
+		F5ABC6D61CEEEC8E00D4503F /* IXProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXProduct.m; path = IndixApi/Models/IXProduct.m; sourceTree = SOURCE_ROOT; };
+		F5ABC6EC1CEEF47600D4503F /* product_desc_v2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = product_desc_v2.txt; path = Test/product_desc_v2.txt; sourceTree = "<group>"; };
+		F5ABC6ED1CEEF47600D4503F /* product_search_v2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = product_search_v2.txt; path = Test/product_search_v2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8139A6A09FC4554D4D0EAD18 /* libPods-ApiExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FCC11D07D1EABFCD682A019 /* libPods-ApiExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +120,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0E14D1A16C6A9BFD69978D /* libPods-ApiExampleUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40166E967022CC0EB3D36EA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EED2E9A5737CADD6FD47E79F /* Pods-ApiExample.debug.xcconfig */,
+				77E016209ED9E4EDD6F4BDE0 /* Pods-ApiExample.release.xcconfig */,
+				8713DB9642C17E044CB0A65A /* Pods-ApiExampleTests.debug.xcconfig */,
+				17EE366C9BC53586EFEFB04A /* Pods-ApiExampleTests.release.xcconfig */,
+				7CF5D7D15D5AADA51C473583 /* Pods-ApiExampleUITests.debug.xcconfig */,
+				5D47F8798C363725C40BD407 /* Pods-ApiExampleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5DC977FE98D43AE14B2AE36E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28D04F4AA7CAEAF2CEC713A7 /* libPods-ApiExample.a */,
+				2B7865DCBD8744BEE6467283 /* libPods-ApiExampleTests.a */,
+				23EED60FC99D2DB3C5AD8519 /* libPods-ApiExampleUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F51B96DA1CEC19F000B090FF = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +157,8 @@
 				F51B96FF1CEC19F100B090FF /* ApiExampleTests */,
 				F51B970A1CEC19F100B090FF /* ApiExampleUITests */,
 				F51B96E41CEC19F000B090FF /* Products */,
+				40166E967022CC0EB3D36EA1 /* Pods */,
+				5DC977FE98D43AE14B2AE36E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +175,7 @@
 		F51B96E51CEC19F100B090FF /* ApiExample */ = {
 			isa = PBXGroup;
 			children = (
+				F51B97191CEC19FD00B090FF /* IndixApi */,
 				F51B96E91CEC19F100B090FF /* AppDelegate.h */,
 				F51B96EA1CEC19F100B090FF /* AppDelegate.m */,
 				F51B96EC1CEC19F100B090FF /* ViewController.h */,
@@ -125,6 +200,7 @@
 		F51B96FF1CEC19F100B090FF /* ApiExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				F5ABC6EB1CEEF46800D4503F /* Test */,
 				F51B97001CEC19F100B090FF /* ApiExampleTests.m */,
 				F51B97021CEC19F100B090FF /* Info.plist */,
 			);
@@ -140,6 +216,50 @@
 			path = ApiExampleUITests;
 			sourceTree = "<group>";
 		};
+		F51B97191CEC19FD00B090FF /* IndixApi */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABC6AE1CEEEC7D00D4503F /* Models */,
+				F5ABC6AB1CEEEC7900D4503F /* IXRApiV2Parser.h */,
+				F5ABC6AC1CEEEC7900D4503F /* IXRApiV2Parser.m */,
+				F51B971A1CEC1A6000B090FF /* IndixApiClient.h */,
+				F51B971B1CEC1A6000B090FF /* IndixApiClient.m */,
+			);
+			name = IndixApi;
+			sourceTree = "<group>";
+		};
+		F5ABC6AE1CEEEC7D00D4503F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABC6B11CEEEC8E00D4503F /* IXMBrandFilter.h */,
+				F5ABC6B21CEEEC8E00D4503F /* IXMBrandFilter.m */,
+				F5ABC6B31CEEEC8E00D4503F /* IXMCategoryFilter.h */,
+				F5ABC6B41CEEEC8E00D4503F /* IXMCategoryFilter.m */,
+				F5ABC6B91CEEEC8E00D4503F /* IXMFilterObjects.h */,
+				F5ABC6BA1CEEEC8E00D4503F /* IXMFilterObjects.m */,
+				F5ABC6BD1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.h */,
+				F5ABC6BE1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.m */,
+				F5ABC6BF1CEEEC8E00D4503F /* IXMProductDetail.h */,
+				F5ABC6C01CEEEC8E00D4503F /* IXMProductDetail.m */,
+				F5ABC6C11CEEEC8E00D4503F /* IXMProductPrice.h */,
+				F5ABC6C21CEEEC8E00D4503F /* IXMProductPrice.m */,
+				F5ABC6CD1CEEEC8E00D4503F /* IXMStoreFilter.h */,
+				F5ABC6CE1CEEEC8E00D4503F /* IXMStoreFilter.m */,
+				F5ABC6D51CEEEC8E00D4503F /* IXProduct.h */,
+				F5ABC6D61CEEEC8E00D4503F /* IXProduct.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F5ABC6EB1CEEF46800D4503F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABC6EC1CEEF47600D4503F /* product_desc_v2.txt */,
+				F5ABC6ED1CEEF47600D4503F /* product_search_v2.txt */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +267,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F51B97101CEC19F100B090FF /* Build configuration list for PBXNativeTarget "ApiExample" */;
 			buildPhases = (
+				49188A85A5950EAA29329B47 /* Check Pods Manifest.lock */,
 				F51B96DF1CEC19F000B090FF /* Sources */,
 				F51B96E01CEC19F000B090FF /* Frameworks */,
 				F51B96E11CEC19F000B090FF /* Resources */,
+				9DBBFC52A919FE44E057C04C /* Embed Pods Frameworks */,
+				5F4944517131962D207A66E4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F51B97131CEC19F100B090FF /* Build configuration list for PBXNativeTarget "ApiExampleTests" */;
 			buildPhases = (
+				1B1172A974A63AFF20A17581 /* Check Pods Manifest.lock */,
 				F51B96F81CEC19F100B090FF /* Sources */,
 				F51B96F91CEC19F100B090FF /* Frameworks */,
 				F51B96FA1CEC19F100B090FF /* Resources */,
+				789A83C7C2D74937DD6EAEF3 /* Embed Pods Frameworks */,
+				37D5053EAD97CFE27333D5DB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +308,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F51B97161CEC19F100B090FF /* Build configuration list for PBXNativeTarget "ApiExampleUITests" */;
 			buildPhases = (
+				5AA2A2080698772286C7AE0E /* Check Pods Manifest.lock */,
 				F51B97031CEC19F100B090FF /* Sources */,
 				F51B97041CEC19F100B090FF /* Frameworks */,
 				F51B97051CEC19F100B090FF /* Resources */,
+				C32B5C45EA51B4C5293E0CAB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5ABC6EF1CEEF47600D4503F /* product_search_v2.txt in Resources */,
+				F5ABC6EE1CEEF47600D4503F /* product_desc_v2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,13 +395,146 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B1172A974A63AFF20A17581 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		37D5053EAD97CFE27333D5DB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiExampleTests/Pods-ApiExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49188A85A5950EAA29329B47 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5AA2A2080698772286C7AE0E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5F4944517131962D207A66E4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiExample/Pods-ApiExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		789A83C7C2D74937DD6EAEF3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiExampleTests/Pods-ApiExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DBBFC52A919FE44E057C04C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiExample/Pods-ApiExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C32B5C45EA51B4C5293E0CAB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiExampleUITests/Pods-ApiExampleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F51B96DF1CEC19F000B090FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5ABC6DC1CEEEC8E00D4503F /* IXMFilterObjects.m in Sources */,
+				F5ABC6D91CEEEC8E00D4503F /* IXMCategoryFilter.m in Sources */,
+				F5ABC6DF1CEEEC8E00D4503F /* IXMProductDetail.m in Sources */,
+				F51B971C1CEC1A6000B090FF /* IndixApiClient.m in Sources */,
+				F5ABC6AD1CEEEC7900D4503F /* IXRApiV2Parser.m in Sources */,
+				F5ABC6DE1CEEEC8E00D4503F /* IXMProductDescriptionAttributes.m in Sources */,
 				F51B96EE1CEC19F100B090FF /* ViewController.m in Sources */,
 				F51B96EB1CEC19F100B090FF /* AppDelegate.m in Sources */,
+				F5ABC6D81CEEEC8E00D4503F /* IXMBrandFilter.m in Sources */,
+				F5ABC6E01CEEEC8E00D4503F /* IXMProductPrice.m in Sources */,
+				F5ABC6EA1CEEEC8E00D4503F /* IXProduct.m in Sources */,
+				F5ABC6E61CEEEC8E00D4503F /* IXMStoreFilter.m in Sources */,
 				F51B96E81CEC19F100B090FF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +674,7 @@
 		};
 		F51B97111CEC19F100B090FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED2E9A5737CADD6FD47E79F /* Pods-ApiExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ApiExample/Info.plist;
@@ -422,6 +686,7 @@
 		};
 		F51B97121CEC19F100B090FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77E016209ED9E4EDD6F4BDE0 /* Pods-ApiExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ApiExample/Info.plist;
@@ -433,6 +698,7 @@
 		};
 		F51B97141CEC19F100B090FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8713DB9642C17E044CB0A65A /* Pods-ApiExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ApiExampleTests/Info.plist;
@@ -445,6 +711,7 @@
 		};
 		F51B97151CEC19F100B090FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17EE366C9BC53586EFEFB04A /* Pods-ApiExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ApiExampleTests/Info.plist;
@@ -457,6 +724,7 @@
 		};
 		F51B97171CEC19F100B090FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CF5D7D15D5AADA51C473583 /* Pods-ApiExampleUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ApiExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -468,6 +736,7 @@
 		};
 		F51B97181CEC19F100B090FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D47F8798C363725C40BD407 /* Pods-ApiExampleUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ApiExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -496,6 +765,7 @@
 				F51B97121CEC19F100B090FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F51B97131CEC19F100B090FF /* Build configuration list for PBXNativeTarget "ApiExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +774,7 @@
 				F51B97151CEC19F100B090FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F51B97161CEC19F100B090FF /* Build configuration list for PBXNativeTarget "ApiExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +783,7 @@
 				F51B97181CEC19F100B090FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
