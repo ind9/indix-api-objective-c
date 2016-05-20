@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 indix. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "IXMProductDescriptionAttributes.h"
 
 @interface IXMProductDetail : NSObject
