@@ -102,3 +102,6 @@ This library comes a utility class that converts response from server to concret
         NSLog(@"%@", error);
     }];    
 ```
+
+## Note
+This library only supports real-time API from Indix.com, if you are interested in bulk-api you can contact us at `support@indix.com`. 
